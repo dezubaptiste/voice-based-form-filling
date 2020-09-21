@@ -48,7 +48,6 @@ recognition.onresult = function(event) {
   var c = document.forms["Form3"]["fname3"].value;
   var value = parseFloat(color);
   console.log(isNaN(value));
-
   if((a == null || a == "") && !isNaN(value)){
     if(value <= 3.0){
   document.getElementById('fname1').value = color;
@@ -72,7 +71,10 @@ diagnostic.textContent = 'Value should be less than 3.0.';
   console.log('Confidence: ' + event.results[0][0].confidence);
 }
 
-function startRecording(){recognition.start();}
+function startRecording(){
+  console.log("inside startRecording");
+  recognition.start();
+}
 
 recognition.onspeechend = function() {
   recognition.stop();
