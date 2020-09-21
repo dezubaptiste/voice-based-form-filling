@@ -81,9 +81,9 @@ recognition.onend = function() {
   recognition.start();
 }*/
 
-/*recognition.onspeechend = function() {
+recognition.onspeechend = function() {
   recognition.stop();
-}*/
+}
 
 recognition.onnomatch = function(event) {
   diagnostic.textContent = "I didn't recognise that color.";
