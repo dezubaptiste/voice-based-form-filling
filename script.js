@@ -52,7 +52,7 @@ recognition.onresult = function(event) {
   if((a == null || a == "") && !isNaN(value)){
     if(value <= 3.0){
   document.getElementById('fname1').value = color;
-  recognition.start();
+  startRecording();
 }
 else
 diagnostic.textContent = 'Value should be less than 3.0.';
@@ -71,6 +71,8 @@ diagnostic.textContent = 'Value should be less than 3.0.';
     }
   console.log('Confidence: ' + event.results[0][0].confidence);
 }
+
+function startRecording(){recognition.start();}
 
 recognition.onspeechend = function() {
   recognition.stop();
