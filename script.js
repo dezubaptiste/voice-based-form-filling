@@ -24,7 +24,7 @@ colors.forEach(function(v, i, a){
   console.log(v, i);
   colorHTML += '<span style="background-color:' + v + ';"> ' + v + ' </span>';
 });
-hints.innerHTML = 'Tap/click then say the value';
+hints.innerHTML = 'Click anywhere to start speaking';
 
 document.body.onclick = function() {
   recognition.start();
