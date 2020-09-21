@@ -27,6 +27,9 @@ colors.forEach(function(v, i, a){
 hints.innerHTML = 'Click anywhere to start speaking';
 
 document.body.onclick = function() {
+  if(stopRecording){
+    stopRecording = false;
+  }
   recognition.start();
   console.log('Ready to receive a color command.');
 }
