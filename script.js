@@ -31,7 +31,6 @@ document.body.onclick = function() {
 }
 
 recognition.onresult = function(event) {
-  recognition.stop();
   // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
   // The SpeechRecognitionResultList object contains SpeechRecognitionResult objects.
   // It has a getter so it can be accessed like an array
@@ -52,7 +51,7 @@ recognition.onresult = function(event) {
   if((a == null || a == "") && !isNaN(value)){
     if(value <= 3.0){
   document.getElementById('fname1').value = color;
-  startRecording();
+  //startRecording();
 }
 else
 diagnostic.textContent = 'Value should be less than 3.0.';
@@ -74,16 +73,17 @@ diagnostic.textContent = 'Value should be less than 3.0.';
 
 recognition.onend = function() {
   console.log('Speech recognition service disconnected');
-}
-
-function startRecording(){
-  console.log("inside startRecording");
   recognition.start();
 }
 
-recognition.onspeechend = function() {
+/*function startRecording(){
+  console.log("inside startRecording");
+  recognition.start();
+}*/
+
+/*recognition.onspeechend = function() {
   recognition.stop();
-}
+}*/
 
 recognition.onnomatch = function(event) {
   diagnostic.textContent = "I didn't recognise that color.";
