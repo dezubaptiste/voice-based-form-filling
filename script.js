@@ -73,6 +73,7 @@ diagnostic.textContent = 'Value should be less than 3.0.';
 
 function startRecording(){
   console.log("inside startRecording");
+  recognition.stop();
   recognition.start();
 }
 
