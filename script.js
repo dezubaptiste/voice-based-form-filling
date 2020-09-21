@@ -45,7 +45,7 @@ recognition.onresult = function(event) {
   // We then return the transcript property of the SpeechRecognitionAlternative object
   var color = event.results[0][0].transcript;
   diagnostic.textContent = 'Response received: ' + color + '.';
-  bg.style.backgroundColor = color;
+  //bg.style.backgroundColor = color;
 
   if(color.includes("stop") || color.includes("save")){
     stopRecording = true;
