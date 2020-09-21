@@ -40,7 +40,7 @@ recognition.onresult = function(event) {
   // The second [0] returns the SpeechRecognitionAlternative at position 0.
   // We then return the transcript property of the SpeechRecognitionAlternative object
   var color = event.results[0][0].transcript;
-  diagnostic.textContent = 'Result received: ' + color + '.';
+  diagnostic.textContent = 'Response received: ' + color + '.';
   bg.style.backgroundColor = color;
 
   var a = document.forms["Form1"]["fname1"].value;
@@ -55,19 +55,19 @@ recognition.onresult = function(event) {
   recognition.start();
 }
 else
-diagnostic.textContent = 'Input needs to be less than 3.0.';
+diagnostic.textContent = 'Value should be less than 3.0.';
 }
   else if((b == null || b == "") && !isNaN(value)){
     if(value >= 200.0){
   document.getElementById('fname2').value = color;}
   else
-  diagnostic.textContent = 'Input needs to be greater than 200.0.';
+  diagnostic.textContent = 'Value should be greater than 200.0.';
     }
   else if((c == null || c == "") && !isNaN(value)){
     if(value >= 0.05){
   document.getElementById('fname3').value = color;}
   else
-  diagnostic.textContent = 'Input needs to be greater than 0.05.';
+  diagnostic.textContent = 'Value should be greater than 0.05.';
     }
   console.log('Confidence: ' + event.results[0][0].confidence);
 }
