@@ -31,6 +31,7 @@ document.body.onclick = function() {
 }
 
 recognition.onresult = function(event) {
+  recognition.stop();
   // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
   // The SpeechRecognitionResultList object contains SpeechRecognitionResult objects.
   // It has a getter so it can be accessed like an array
@@ -71,9 +72,12 @@ diagnostic.textContent = 'Value should be less than 3.0.';
   console.log('Confidence: ' + event.results[0][0].confidence);
 }
 
+recognition.onend = function() {
+  console.log('Speech recognition service disconnected');
+}
+
 function startRecording(){
   console.log("inside startRecording");
-  recognition.stop();
   recognition.start();
 }
 
