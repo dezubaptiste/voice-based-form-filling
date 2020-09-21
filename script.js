@@ -13,6 +13,7 @@ recognition.continuous = false;
 recognition.lang = 'en-US';
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
+var stopRecording = false;
 
 var diagnostic = document.querySelector('.output');
 var bg = document.querySelector('html');
@@ -43,6 +44,9 @@ recognition.onresult = function(event) {
   diagnostic.textContent = 'Response received: ' + color + '.';
   bg.style.backgroundColor = color;
 
+  if(color.includes("stop") || color.includes("save")){
+    stopRecording = true;
+  }
   var a = document.forms["Form1"]["fname1"].value;
   var b = document.forms["Form2"]["fname2"].value;
   var c = document.forms["Form3"]["fname3"].value;
@@ -71,15 +75,16 @@ diagnostic.textContent = 'Value should be less than 3.0.';
   console.log('Confidence: ' + event.results[0][0].confidence);
 }
 
-recognition.onend = function() {
-  console.log('Speech recognition service disconnected');
-  recognition.start();
-}
 
 /*function startRecording(){
   console.log("inside startRecording");
   recognition.start();
 }*/
+recognition.onend = function() {
+  console.log('Speech recognition service disconnected');
+  if(!stopRecording){
+  recognition.start();}
+}
 
 recognition.onspeechend = function() {
   recognition.stop();
